@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
     
-    let cellReuseIdentifier = "cell"
+    let cellReuseIdentifier = "NoteCell"
     var notesData: [Note] = getNotesData()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,10 +23,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: NoteCell = self.notesTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! NoteCell
-        
-        cell.descriptionLabel?.text = self.notesData[indexPath.row].description
-//        print(self.notesData[indexPath.row].description)
+        let cell: NoteCell = self.notesTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! NoteCell
+//        cell.descLabel?.text = self.notesData[indexPath.row].description
+        cell.textLabel?.text = self.notesData[indexPath.row].description
         return cell
     }
     
@@ -34,7 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.notesTable.register(NoteCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 //        notesTable.delegate = self
-        notesTable.dataSource = self
+//        notesTable.dataSource = self
         // Do any additional setup after loading the view.
     }
 

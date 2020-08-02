@@ -17,7 +17,6 @@
 		A6A31D6224D6AE1300F62F74 /* plannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D6124D6AE1300F62F74 /* plannerTests.swift */; };
 		A6A31D6D24D6AE1300F62F74 /* plannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D6C24D6AE1300F62F74 /* plannerUITests.swift */; };
 		A6A31D7E24D6C7F800F62F74 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D7D24D6C7F800F62F74 /* Model.swift */; };
-		A6A31D8024D6C93500F62F74 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D7F24D6C93500F62F74 /* NoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +53,6 @@
 		A6A31D6C24D6AE1300F62F74 /* plannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plannerUITests.swift; sourceTree = "<group>"; };
 		A6A31D6E24D6AE1300F62F74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A31D7D24D6C7F800F62F74 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		A6A31D7F24D6C93500F62F74 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 				A6A31D5824D6AE1300F62F74 /* Info.plist */,
 				A6A31D5024D6AE1000F62F74 /* planner.xcdatamodeld */,
 				A6A31D7D24D6C7F800F62F74 /* Model.swift */,
-				A6A31D7F24D6C93500F62F74 /* NoteCell.swift */,
 			);
 			path = planner;
 			sourceTree = "<group>";
@@ -271,7 +268,6 @@
 				A6A31D7E24D6C7F800F62F74 /* Model.swift in Sources */,
 				A6A31D5224D6AE1000F62F74 /* planner.xcdatamodeld in Sources */,
 				A6A31D4C24D6AE1000F62F74 /* ViewController.swift in Sources */,
-				A6A31D8024D6C93500F62F74 /* NoteCell.swift in Sources */,
 				A6A31D4824D6AE1000F62F74 /* AppDelegate.swift in Sources */,
 				A6A31D4A24D6AE1000F62F74 /* SceneDelegate.swift in Sources */,
 			);
