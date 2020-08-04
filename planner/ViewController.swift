@@ -27,9 +27,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.descriptionLabel.text = self.notesData[indexPath.row].description
         guard let finishDate = self.notesData[indexPath.row].finishDate else {
+            cell.finishDateLabel.isHidden = true
             return cell
         }
-        cell.finishDateLabel.text = finishDate.description
+        cell.finishDateLabel.text = finishDate.noteDate
         return cell
     }
     
@@ -44,5 +45,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
 func getNotesData() -> [Note] {
-    return [Note(description: "desc1", state: false), Note(description: "desc2", state: false), Note(description: "desc3", state: false)]
+    let note1 = Note(description: "desc1", state: false)
+    let note2 = Note(description: "desc2", state: false, finishDate: Date())
+    let note3 = Note(description: "desc3", state: false, finishDate: Date(timeIntervalSinceNow: -80000))
+    let note4 = Note(description: "deschhfjdkdkdfjjfjfd jncjkndjnsjcs dsdmkldsmcklmsdcjklsdjcnsdl4", state: true, finishDate: Date(timeIntervalSinceNow: 1000000))
+    print(note3.finishDate ?? "kek")
+    print(note4.finishDate ?? "kek")
+    return [note1, note2, note3, note4]
 }

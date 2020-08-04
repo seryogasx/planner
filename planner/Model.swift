@@ -11,6 +11,30 @@ import Foundation
 struct Note {
     let description: String
     let state: Bool
-    let startDate: Date? = nil
-    let finishDate: Date? = nil
+    var startDate: Date? = nil
+    var finishDate: Date? = nil
+}
+
+
+extension Date {
+    var noteDate: String {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM"
+        
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: self)
+//        let month = calendar.component(.month, from: self)
+        
+        if (day - calendar.component(.day, from: now)) == -1 {
+            return "Yesterday"
+        }
+        else if (day - calendar.component(.day, from: now)) == 0 {
+            return "Today"
+        }
+        else if (day - calendar.component(.day, from: now)) == 1 {
+            return "Tomorrow"
+        }
+        return dateFormatter.string(from: self)
+    }
 }
