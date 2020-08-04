@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var view2Button: UIBarButtonItem!
     @IBOutlet weak var view1Button: UIBarButtonItem!
+    @IBOutlet weak var view2Button: UIBarButtonItem!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
     
@@ -24,17 +24,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NoteCell = self.notesTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! NoteCell
-//        cell.descLabel?.text = self.notesData[indexPath.row].description
-        cell.textLabel?.text = self.notesData[indexPath.row].description
+        
+        cell.descriptionLabel.text = self.notesData[indexPath.row].description
+        guard let finishDate = self.notesData[indexPath.row].finishDate else {
+            return cell
+        }
+        cell.finishDateLabel.text = finishDate.description
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.notesTable.register(NoteCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-//        notesTable.delegate = self
-//        notesTable.dataSource = self
-        // Do any additional setup after loading the view.
+        notesTable.delegate = self
+        notesTable.dataSource = self
     }
 
 
