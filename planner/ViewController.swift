@@ -8,15 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class ViewController: UIViewController {
 
     @IBOutlet weak var view1Button: UIBarButtonItem!
     @IBOutlet weak var view2Button: UIBarButtonItem!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
     
-    let cellReuseIdentifier = "NoteCell"
     var notesData: [Note] = getNotesData()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    var cellReuseIdentifier: String {
+        return "NoteCell"
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.notesData.count
@@ -31,13 +43,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.finishDateLabel.isHidden = true
             return cell
         }
+        
         cell.finishDateLabel.text = finishDate.noteDate
         return cell
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        notesTable.delegate = self
-        notesTable.dataSource = self
     }
 }
