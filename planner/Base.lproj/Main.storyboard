@@ -30,9 +30,12 @@
                                                 <stackView opaque="NO" contentMode="left" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qkO-sl-UlZ">
                                                     <rect key="frame" x="10" y="10" width="310" height="37"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FU-UN-PfJ">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FU-UN-PfJ" userLabel="NoteStateButton">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="37"/>
                                                             <state key="normal" image="circle" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="stateButtonClicked:" destination="p0F-ZM-TeI" eventType="touchUpInside" id="knD-lO-ngB"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-TP-lEA">
                                                             <rect key="frame" x="35" y="0.0" width="275" height="37"/>
@@ -63,6 +66,7 @@
                                         <connections>
                                             <outlet property="descriptionTextField" destination="FzN-k5-4ht" id="UeS-9B-e1l"/>
                                             <outlet property="finishDateLabel" destination="5CU-IF-sBE" id="XrG-Zq-KfW"/>
+                                            <outlet property="stateButton" destination="2FU-UN-PfJ" id="lNd-Fw-TZK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
