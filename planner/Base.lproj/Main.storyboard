@@ -20,41 +20,49 @@
                                 <rect key="frame" x="20" y="108" width="374" height="754"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="p0F-ZM-TeI" customClass="NoteCell" customModule="planner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="374" height="66.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="NoteCell" id="p0F-ZM-TeI" customClass="NoteCell" customModule="planner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="374" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p0F-ZM-TeI" id="FE7-jf-52O">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="66.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4LY-KL-OwI">
-                                                    <rect key="frame" x="10" y="10" width="354" height="46.5"/>
+                                                <stackView opaque="NO" contentMode="left" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qkO-sl-UlZ">
+                                                    <rect key="frame" x="10" y="10" width="310" height="37"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdy-Ri-DHu" userLabel="Discription">
-                                                            <rect key="frame" x="0.0" y="0.0" width="52.5" height="27"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a87-Er-N59" userLabel="FinishDate">
-                                                            <rect key="frame" x="0.0" y="32" width="31" height="14.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FU-UN-PfJ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="37"/>
+                                                            <state key="normal" image="circle" catalog="system"/>
+                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-TP-lEA">
+                                                            <rect key="frame" x="35" y="0.0" width="275" height="37"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="some description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzN-k5-4ht" userLabel="DescriptionTextField">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="22.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CU-IF-sBE" userLabel="FinishDateLabel">
+                                                                    <rect key="frame" x="0.0" y="22.5" width="31" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="4LY-KL-OwI" secondAttribute="bottom" constant="10" id="1Sp-vu-zNI"/>
-                                                <constraint firstAttribute="trailing" secondItem="4LY-KL-OwI" secondAttribute="trailing" constant="10" id="4N3-CF-ozf"/>
-                                                <constraint firstItem="4LY-KL-OwI" firstAttribute="top" secondItem="FE7-jf-52O" secondAttribute="top" constant="10" id="4on-DD-Iwg"/>
-                                                <constraint firstItem="4LY-KL-OwI" firstAttribute="leading" secondItem="FE7-jf-52O" secondAttribute="leading" constant="10" id="6pA-IN-weg"/>
+                                                <constraint firstAttribute="trailing" secondItem="qkO-sl-UlZ" secondAttribute="trailing" constant="10" id="A7V-1A-5pw"/>
+                                                <constraint firstItem="qkO-sl-UlZ" firstAttribute="top" secondItem="FE7-jf-52O" secondAttribute="top" constant="10" id="BKx-Ve-kKe"/>
+                                                <constraint firstItem="qkO-sl-UlZ" firstAttribute="leading" secondItem="FE7-jf-52O" secondAttribute="leading" constant="10" id="fWe-dw-NH1"/>
+                                                <constraint firstAttribute="bottom" secondItem="qkO-sl-UlZ" secondAttribute="bottom" constant="10" id="wzl-DY-BDI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="Cdy-Ri-DHu" id="JZF-Gi-oT2"/>
-                                            <outlet property="finishDateLabel" destination="a87-Er-N59" id="E9j-Aw-5ks"/>
+                                            <outlet property="descriptionTextField" destination="FzN-k5-4ht" id="UeS-9B-e1l"/>
+                                            <outlet property="finishDateLabel" destination="5CU-IF-sBE" id="XrG-Zq-KfW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -76,8 +84,8 @@
                     <navigationItem key="navigationItem" id="ct9-cY-ZDx">
                         <rightBarButtonItems>
                             <barButtonItem image="gear" catalog="system" style="done" id="hYl-cc-XoQ" userLabel="SettingsButton"/>
-                            <barButtonItem image="bookmark" catalog="system" style="done" id="aPx-iJ-I3D" userLabel="View1Button"/>
-                            <barButtonItem title="Item" image="trash" catalog="system" style="done" id="QMw-pS-iks" userLabel="View2Button"/>
+                            <barButtonItem enabled="NO" image="bookmark" catalog="system" style="done" id="aPx-iJ-I3D" userLabel="View1Button"/>
+                            <barButtonItem enabled="NO" title="Item" image="trash" catalog="system" style="done" id="QMw-pS-iks" userLabel="View2Button"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -112,6 +120,7 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="trash" catalog="system" width="121" height="128"/>
     </resources>

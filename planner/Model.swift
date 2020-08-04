@@ -24,7 +24,6 @@ extension Date {
         
         let calendar = Calendar.current
         let day = calendar.component(.day, from: self)
-//        let month = calendar.component(.month, from: self)
         
         if (day - calendar.component(.day, from: now)) == -1 {
             return "Yesterday"

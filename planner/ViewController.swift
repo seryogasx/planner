@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var view2Button: UIBarButtonItem!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
+//    @IBOutlet weak var noteStackView: UIStackView!
     
     let cellReuseIdentifier = "NoteCell"
     var notesData: [Note] = getNotesData()
@@ -25,7 +26,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NoteCell = self.notesTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! NoteCell
         
-        cell.descriptionLabel.text = self.notesData[indexPath.row].description
+        cell.descriptionTextField.text = self.notesData[indexPath.row].description
+
         guard let finishDate = self.notesData[indexPath.row].finishDate else {
             cell.finishDateLabel.isHidden = true
             return cell
@@ -36,11 +38,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        noteStackView.subviews[0].sizeToFit()
         notesTable.delegate = self
         notesTable.dataSource = self
     }
-
-
 }
 
 

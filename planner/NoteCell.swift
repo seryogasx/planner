@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class NoteCell: UITableViewCell {
-    
-    @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var finishDateLabel: UILabel!
+
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var finishDateLabel: UILabel!
     
 }
