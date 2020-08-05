@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var notesData: [Note] = []
     
     @IBAction func NewNoteButtonClicked(_ sender: UIBarButtonItem) {
-        Storage.shared.saveNote(note: Note(description: "kek", state: true))
+        Storage.shared.saveNote(note: Note(objectID: nil, description: "kek", state: true))
     }
     
     override func viewDidLoad() {

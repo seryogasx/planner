@@ -30,8 +30,6 @@ class Storage {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
@@ -69,7 +67,7 @@ extension Storage {
             let text = note.value(forKey: "text") as! String
             let state = note.value(forKey: "state") as! Bool
             let finishDate = note.value(forKey: "finishDate") as? Date
-            notes.append(Note(description: text, state: state, finishDate: finishDate))
+            notes.append(Note(objectID: note.objectID, description: text, state: state, finishDate: finishDate))
         }
         
         return notes
@@ -88,6 +86,27 @@ extension Storage {
             try mainContext.save()
         } catch let error as NSError {
             print("Save note error!")
+            print("Error: \(error)")
+            print("Error description: \(error.description)")
+            print("Error userInfo: \(error.userInfo)")
+        }
+    }
+    
+    func updateNote(updatedNote: Note) {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "NoteData")
+        fetchRequest.predicate = NSPredicate(format: "objectID = %@", updatedNote.objectID!)
+        do {
+            let result = try mainContext.fetch(fetchRequest)
+            guard let note = result.first else {
+                return
+            }
+            note.setValue(updatedNote.description, forKey: "text")
+            note.setValue(updatedNote.state, forKey: "state")
+            note.setValue(updatedNote.finishDate, forKey: "finishedDate")
+            
+            try mainContext.save()
+        } catch let error as NSError {
+            print("Update note error!")
             print("Error: \(error)")
             print("Error description: \(error.description)")
             print("Error userInfo: \(error.userInfo)")

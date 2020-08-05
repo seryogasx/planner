@@ -103,6 +103,7 @@
 			children = (
 				A6A31D7D24D6C7F800F62F74 /* Model.swift */,
 				A64C032E24DB0D720071B51B /* Storage.swift */,
+				A632A57F24D8938800B1F21A /* NoteCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,7 +140,6 @@
 				A6A31D5524D6AE1300F62F74 /* LaunchScreen.storyboard */,
 				A6A31D5824D6AE1300F62F74 /* Info.plist */,
 				A6A31D5024D6AE1000F62F74 /* planner.xcdatamodeld */,
-				A632A57F24D8938800B1F21A /* NoteCell.swift */,
 			);
 			path = planner;
 			sourceTree = "<group>";
