@@ -94,7 +94,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Notes" largeTitleDisplayMode="always" id="ct9-cY-ZDx">
                         <rightBarButtonItems>
-                            <barButtonItem image="square.and.pencil" catalog="system" style="plain" id="0V7-ux-VZc" userLabel="NewNoteButton"/>
+                            <barButtonItem image="square.and.pencil" catalog="system" style="plain" id="0V7-ux-VZc" userLabel="NewNoteButton">
+                                <connections>
+                                    <action selector="NewNoteButtonClicked:" destination="BYZ-38-t0r" id="Bv3-1b-WdP"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="gear" catalog="system" style="done" id="hYl-cc-XoQ" userLabel="SettingsButton">
                                 <connections>
                                     <segue destination="yBm-mP-r6B" kind="show" identifier="SettingsSegue" id="EZc-ax-eUS"/>
