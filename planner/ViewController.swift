@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 class ViewController: UIViewController {
@@ -16,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
     
-    var notesData: [Note] = getNotesData()
+    var notesData = DataStorage.shared.loadAllNotes()
+//    var notesData = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
