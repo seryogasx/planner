@@ -13,7 +13,6 @@ import UIKit
 class DataStorage {
     
     var notes: [Note]
-    
     static var shared = DataStorage()
     
     var persistentContainer: NSPersistentContainer {

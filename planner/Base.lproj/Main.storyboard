@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6PD-hH-ag9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -37,7 +37,7 @@
                                                                 <action selector="stateButtonClicked:" destination="p0F-ZM-TeI" eventType="touchUpInside" id="knD-lO-ngB"/>
                                                             </connections>
                                                         </button>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-TP-lEA">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-TP-lEA">
                                                             <rect key="frame" x="45" y="0.0" width="264" height="37"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="some description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzN-k5-4ht" userLabel="DescriptionTextField">
@@ -92,13 +92,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ct9-cY-ZDx">
+                    <navigationItem key="navigationItem" title="Notes" largeTitleDisplayMode="always" id="ct9-cY-ZDx">
                         <rightBarButtonItems>
-                            <barButtonItem image="square.and.pencil" catalog="system" style="plain" id="0V7-ux-VZc" userLabel="NewNoteButton">
-                                <connections>
-                                    <segue destination="LIN-Ua-C4l" kind="show" identifier="NewNoteSegue" id="eWQ-gp-y8x"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem image="square.and.pencil" catalog="system" style="plain" id="0V7-ux-VZc" userLabel="NewNoteButton"/>
                             <barButtonItem image="gear" catalog="system" style="done" id="hYl-cc-XoQ" userLabel="SettingsButton">
                                 <connections>
                                     <segue destination="yBm-mP-r6B" kind="show" identifier="SettingsSegue" id="EZc-ax-eUS"/>
@@ -115,49 +111,33 @@
             </objects>
             <point key="canvasLocation" x="333.33333333333337" y="58.258928571428569"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="CHg-cs-U1W">
-            <objects>
-                <viewController id="LIN-Ua-C4l" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KrQ-jr-Xiq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="pDN-bz-fHi"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="OPl-wd-kFF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m4H-st-hHw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1625" y="58"/>
-        </scene>
-        <!--View Controller-->
+        <!--NoteDetail-->
         <scene sceneID="Hgh-O4-mwh">
             <objects>
-                <viewController id="wCa-8f-MzV" sceneMemberID="viewController">
+                <viewController title="NoteDetail" id="wCa-8f-MzV" customClass="NoteDetailViewController" customModule="planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fVx-Du-zUM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KRj-PJ-otk"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RYv-Xe-wsx"/>
+                    <navigationItem key="navigationItem" title="Details" largeTitleDisplayMode="always" id="RYv-Xe-wsx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLT-cP-5Ic" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="831"/>
+            <point key="canvasLocation" x="1625" y="58"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="Tfk-4k-tdT">
             <objects>
-                <viewController id="yBm-mP-r6B" sceneMemberID="viewController">
+                <viewController title="Settings" id="yBm-mP-r6B" customClass="SettingsViewController" customModule="planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3hx-fe-PP2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="l1H-9a-0fo"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FA4-Ij-g8R"/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="FA4-Ij-g8R"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOi-d3-qz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

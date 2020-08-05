@@ -12,8 +12,6 @@ import CoreData
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var view1Button: UIBarButtonItem!
-    @IBOutlet weak var view2Button: UIBarButtonItem!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
     
