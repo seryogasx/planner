@@ -10,7 +10,7 @@ import Foundation
 
 struct Note {
     let description: String
-    let state: Bool
+    var state: Bool
     var finishDate: Date? = nil
 }
 
@@ -42,7 +42,7 @@ func getNotesData() -> [Note] {
     let note2 = Note(description: "desc2", state: false, finishDate: Date())
     let note3 = Note(description: "desc3", state: false, finishDate: Date(timeIntervalSinceNow: -80000))
     let note4 = Note(description: "deschhfjdkdkdfjjfjfd jncjkndjnsjcs dsdmkldsmcklmsdcjklsdjcnsdl4", state: true, finishDate: Date(timeIntervalSinceNow: 1000000))
-    print(note3.finishDate ?? "kek")
-    print(note4.finishDate ?? "kek")
+//    print(note3.finishDate ?? "kek")
+//    print(note4.finishDate ?? "kek")
     return [note1, note2, note3, note4]
 }

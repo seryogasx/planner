@@ -21,8 +21,13 @@ class NoteCell: UITableViewCell {
     
     // UPDATE Data at DB (in future)
     @IBAction func stateButtonClicked(_ sender: Any) {
-        let buttonImage = self.note?.state == true ? "circle.fill" : "circle"
-        self.stateButton.setBackgroundImage(UIImage(named: buttonImage), for: .disabled)
+        self.note?.state.toggle()
+        self.setButtonImage()
+    }
+    
+    func setButtonImage() {
+        let buttonImage = self.note?.state == true ? UIImage(named: "finished_mark") : UIImage(named: "unfinished_mark")
+        self.stateButton.setImage(buttonImage, for: .normal)
     }
     
 }

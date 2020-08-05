@@ -38,6 +38,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell: NoteCell = self.notesTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! NoteCell
         
         cell.descriptionTextField.text = self.notesData[indexPath.row].description
+        cell.note = notesData[indexPath.row]
+        cell.setButtonImage()
         
         guard let finishDate = self.notesData[indexPath.row].finishDate else {
             cell.finishDateLabel.isHidden = true
