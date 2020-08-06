@@ -17,11 +17,9 @@ class NoteCell: UITableViewCell {
     
     var note: Note?
     
-    
-    // UPDATE Data at DB (in future)
     @IBAction func stateButtonClicked(_ sender: Any) {
         self.note?.state.toggle()
-//        Storage.shared.updateNote(updatedNote: note!)
+        Storage.shared.updateNote(updatedNote: note!)
         self.setButtonImage()
     }
     
