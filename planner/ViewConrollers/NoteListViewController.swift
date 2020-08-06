@@ -23,7 +23,11 @@ class NoteListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.notesData = Storage.shared.loadNotes()
+        self.notesTable.reloadData()
     }
 }
 

@@ -15,18 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FHc-l9-hWt" userLabel="NotesTable">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FHc-l9-hWt" userLabel="NotesTable">
                                 <rect key="frame" x="20" y="108" width="374" height="754"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoteCell" id="p0F-ZM-TeI" customClass="NoteCell" customModule="planner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="374" height="57"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p0F-ZM-TeI" id="FE7-jf-52O">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="left" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qkO-sl-UlZ">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qkO-sl-UlZ">
                                                     <rect key="frame" x="10" y="10" width="354" height="37"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FU-UN-PfJ" userLabel="NoteStateButton">
@@ -138,14 +137,54 @@
                     <view key="view" contentMode="scaleToFill" id="Yhl-9Q-Qms">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qKZ-wf-DLg">
+                                <rect key="frame" x="10" y="98" width="394" height="328.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-nV-DEt">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ST9-FC-C7R">
+                                        <rect key="frame" x="0.0" y="54" width="394" height="38.5"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Set finish date">
+                                                    <attributes>
+                                                        <font key="NSFont" size="24" name=".SFNS-Regular"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="finishDateButtonClicked:" destination="HAV-AU-NCz" eventType="touchUpInside" id="fA2-BG-gAm"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UH4-xh-igX">
+                                        <rect key="frame" x="0.0" y="112.5" width="394" height="216"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="216" id="dai-x9-dbF"/>
+                                        </constraints>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qKZ-wf-DLg" secondAttribute="trailing" constant="10" id="Jv3-sz-lNM"/>
+                            <constraint firstItem="qKZ-wf-DLg" firstAttribute="top" secondItem="R9a-mz-PSh" secondAttribute="top" constant="10" id="WoD-3b-haK"/>
+                            <constraint firstItem="qKZ-wf-DLg" firstAttribute="leading" secondItem="R9a-mz-PSh" secondAttribute="leading" constant="10" id="fdU-Xo-j1A"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="R9a-mz-PSh"/>
                     </view>
                     <navigationItem key="navigationItem" id="SHr-Rv-Fhs">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Ce7-jN-JKm">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5FO-IP-ahC" userLabel="DoneButton">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <rect key="frame" x="302" y="5.5" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonClicked:" destination="HAV-AU-NCz" eventType="touchUpInside" id="RWv-4x-PmP"/>
@@ -154,7 +193,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="UH4-xh-igX" id="zAb-2a-FGz"/>
                         <outlet property="doneButton" destination="5FO-IP-ahC" id="GN4-fR-7lI"/>
+                        <outlet property="noteDiscription" destination="xqg-nV-DEt" id="eOr-Nq-voy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="saV-DQ-Hdc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
