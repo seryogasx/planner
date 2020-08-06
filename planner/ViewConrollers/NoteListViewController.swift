@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NoteListViewController.swift
 //  planner
 //
 //  Created by Сергей Петров on 02.08.2020.
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class ViewController: UIViewController {
+class NoteListViewController: UIViewController {
 
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var notesData: [Note] = []
     
     @IBAction func NewNoteButtonClicked(_ sender: UIBarButtonItem) {
-        Storage.shared.saveNote(note: Note(objectID: nil, description: "kek", state: true))
+        Storage.shared.saveNote(note: Note(objectID: nil, description: "kek", state: true, finishDate: Date(timeIntervalSinceNow: 10000)))
     }
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension NoteListViewController: UITableViewDelegate, UITableViewDataSource {
     
     var cellReuseIdentifier: String {
         return "NoteCell"

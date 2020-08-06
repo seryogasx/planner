@@ -26,8 +26,8 @@ class NoteCell: UITableViewCell {
     }
     
     func setButtonImage() {
-//        let buttonImage = self.note?.state == true ? UIImage(named: "finished_mark") : UIImage(named: "unfinished_mark")
-//        self.stateButton.setImage(buttonImage, for: .normal)
+        let buttonImage = note?.state == false ? UIImage(systemName: "circle") : UIImage(systemName: "circle.fill")
+        self.stateButton.setImage(buttonImage, for: .normal)
     }
     
 }

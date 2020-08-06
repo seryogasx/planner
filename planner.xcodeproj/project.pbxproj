@@ -13,7 +13,7 @@
 		A64C032F24DB0D720071B51B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C032E24DB0D720071B51B /* Storage.swift */; };
 		A6A31D4824D6AE1000F62F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D4724D6AE1000F62F74 /* AppDelegate.swift */; };
 		A6A31D4A24D6AE1000F62F74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D4924D6AE1000F62F74 /* SceneDelegate.swift */; };
-		A6A31D4C24D6AE1000F62F74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D4B24D6AE1000F62F74 /* ViewController.swift */; };
+		A6A31D4C24D6AE1000F62F74 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D4B24D6AE1000F62F74 /* NoteListViewController.swift */; };
 		A6A31D4F24D6AE1000F62F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A31D4D24D6AE1000F62F74 /* Main.storyboard */; };
 		A6A31D5224D6AE1000F62F74 /* planner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D5024D6AE1000F62F74 /* planner.xcdatamodeld */; };
 		A6A31D5424D6AE1300F62F74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A31D5324D6AE1300F62F74 /* Assets.xcassets */; };
@@ -48,7 +48,7 @@
 		A6A31D4424D6AE1000F62F74 /* planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = planner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A31D4724D6AE1000F62F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6A31D4924D6AE1000F62F74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A6A31D4B24D6AE1000F62F74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6A31D4B24D6AE1000F62F74 /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		A6A31D4E24D6AE1000F62F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6A31D5124D6AE1000F62F74 /* planner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = planner.xcdatamodel; sourceTree = "<group>"; };
 		A6A31D5324D6AE1300F62F74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,21 +91,21 @@
 		A64C032424DAF8030071B51B /* ViewConrollers */ = {
 			isa = PBXGroup;
 			children = (
-				A6A31D4B24D6AE1000F62F74 /* ViewController.swift */,
+				A6A31D4B24D6AE1000F62F74 /* NoteListViewController.swift */,
 				A64C032524DAF82D0071B51B /* SettingsViewController.swift */,
 				A64C032724DAF8E80071B51B /* NoteDetailViewController.swift */,
 			);
 			path = ViewConrollers;
 			sourceTree = "<group>";
 		};
-		A64C033024DB260E0071B51B /* Model */ = {
+		A64C033024DB260E0071B51B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A6A31D7D24D6C7F800F62F74 /* Model.swift */,
 				A64C032E24DB0D720071B51B /* Storage.swift */,
 				A632A57F24D8938800B1F21A /* NoteCell.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A6A31D3B24D6AE1000F62F74 = {
@@ -131,7 +131,7 @@
 		A6A31D4624D6AE1000F62F74 /* planner */ = {
 			isa = PBXGroup;
 			children = (
-				A64C033024DB260E0071B51B /* Model */,
+				A64C033024DB260E0071B51B /* Models */,
 				A64C032424DAF8030071B51B /* ViewConrollers */,
 				A6A31D4724D6AE1000F62F74 /* AppDelegate.swift */,
 				A6A31D4924D6AE1000F62F74 /* SceneDelegate.swift */,
@@ -296,7 +296,7 @@
 				A6A31D7E24D6C7F800F62F74 /* Model.swift in Sources */,
 				A6A31D5224D6AE1000F62F74 /* planner.xcdatamodeld in Sources */,
 				A64C032824DAF8E80071B51B /* NoteDetailViewController.swift in Sources */,
-				A6A31D4C24D6AE1000F62F74 /* ViewController.swift in Sources */,
+				A6A31D4C24D6AE1000F62F74 /* NoteListViewController.swift in Sources */,
 				A632A58024D8938800B1F21A /* NoteCell.swift in Sources */,
 				A64C032F24DB0D720071B51B /* Storage.swift in Sources */,
 				A6A31D4824D6AE1000F62F74 /* AppDelegate.swift in Sources */,
@@ -477,7 +477,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4LT66343UC;
 				INFOPLIST_FILE = planner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -496,7 +496,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4LT66343UC;
 				INFOPLIST_FILE = planner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

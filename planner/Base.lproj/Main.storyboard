@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6PD-hH-ag9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +10,7 @@
         <!--Notes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Notes" id="BYZ-38-t0r" customClass="ViewController" customModule="planner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Notes" id="BYZ-38-t0r" customClass="NoteListViewController" customModule="planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,14 +30,14 @@
                                                     <rect key="frame" x="10" y="10" width="354" height="37"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FU-UN-PfJ" userLabel="NoteStateButton">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="37"/>
-                                                            <state key="normal" image="circle" catalog="system"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="19.5" height="37"/>
+                                                            <state key="normal" image="square" catalog="system"/>
                                                             <connections>
                                                                 <action selector="stateButtonClicked:" destination="p0F-ZM-TeI" eventType="touchUpInside" id="knD-lO-ngB"/>
                                                             </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-TP-lEA">
-                                                            <rect key="frame" x="45" y="0.0" width="264" height="37"/>
+                                                            <rect key="frame" x="44.5" y="0.0" width="264.5" height="37"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="some description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzN-k5-4ht" userLabel="DescriptionTextField">
                                                                     <rect key="frame" x="0.0" y="0.0" width="132" height="22.5"/>
@@ -167,9 +166,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>
