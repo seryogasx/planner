@@ -24,12 +24,13 @@ class NewNoteViewController: UIViewController {
     @IBAction func doneButtonClicked(_ sender: UIButton) {
         
         let text = self.noteDiscription.text ?? ""
-        guard self.datePicker.isHidden == false else {
+        if self.datePicker.isHidden == false {
             Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false))
-            return
         }
-        let date = self.datePicker.date
-        Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false, finishDate: date))
+        else {
+            let date = self.datePicker.date
+            Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false, finishDate: date))
+        }
         self.navigationController?.popToRootViewController(animated: true)
     }
     

@@ -18,7 +18,7 @@ class NoteListViewController: UIViewController {
     var notesData: [Note] = []
     
     @IBAction func NewNoteButtonClicked(_ sender: UIBarButtonItem) {
-        Storage.shared.saveNote(note: Note(objectID: nil, description: "kek", state: true, finishDate: Date(timeIntervalSinceNow: 10000)))
+//        Storage.shared.saveNote(note: Note(objectID: nil, description: "kek", state: true, finishDate: Date(timeIntervalSinceNow: 10000)))
     }
     
     override func viewDidLoad() {
@@ -58,5 +58,12 @@ extension NoteListViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.finishDateLabel.text = note.finishDate?.noteDate
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.notesTable.deleteRows(at: [indexPath], with: .fade)
+            Storage.shared.deleteNote(deletedNote: notesData[indexPath.row])
+        }
     }
 }

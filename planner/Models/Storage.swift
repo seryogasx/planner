@@ -94,10 +94,12 @@ extension Storage {
     
     func updateNote(updatedNote: Note) {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "NoteData")
-        fetchRequest.predicate = NSPredicate(format: "objectID = %@", updatedNote.objectID!)
+//        fetchRequest.predicate = NSPredicate(format: "objectID = %@", updatedNote.objectID!)
+        fetchRequest.predicate = NSPredicate(format: "text = %@", updatedNote.description)
         do {
             let result = try mainContext.fetch(fetchRequest)
             guard let note = result.first else {
+                print("Cannot get result!")
                 return
             }
             note.setValue(updatedNote.description, forKey: "text")
@@ -107,6 +109,26 @@ extension Storage {
             try mainContext.save()
         } catch let error as NSError {
             print("Update note error!")
+            print("Error: \(error)")
+            print("Error description: \(error.description)")
+            print("Error userInfo: \(error.userInfo)")
+        }
+    }
+    
+    func deleteNote(deletedNote: Note) {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "NoteData")
+//        fetchRequest.predicate = NSPredicate(format: "objectID = %@", deletedNote.objectID!)
+        fetchRequest.predicate = NSPredicate(format: "text = %@", deletedNote.description)
+        do {
+            let result = try mainContext.fetch(fetchRequest)
+            guard let note = result.first else {
+                print("Cannot get result!")
+                return
+            }
+            mainContext.delete(note)
+            try mainContext.save()
+        } catch let error as NSError {
+            print("Delete note error!")
             print("Error: \(error)")
             print("Error description: \(error.description)")
             print("Error userInfo: \(error.userInfo)")
