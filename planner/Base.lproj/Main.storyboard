@@ -30,14 +30,14 @@
                                                     <rect key="frame" x="10" y="10" width="354" height="37"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FU-UN-PfJ" userLabel="NoteStateButton">
-                                                            <rect key="frame" x="0.0" y="0.0" width="19.5" height="37"/>
-                                                            <state key="normal" image="square" catalog="system"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="37"/>
+                                                            <state key="normal" image="circle" catalog="system"/>
                                                             <connections>
                                                                 <action selector="stateButtonClicked:" destination="p0F-ZM-TeI" eventType="touchUpInside" id="knD-lO-ngB"/>
                                                             </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-TP-lEA">
-                                                            <rect key="frame" x="44.5" y="0.0" width="264.5" height="37"/>
+                                                            <rect key="frame" x="45" y="0.0" width="264" height="37"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="some description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzN-k5-4ht" userLabel="DescriptionTextField">
                                                                     <rect key="frame" x="0.0" y="0.0" width="132" height="22.5"/>
@@ -96,6 +96,7 @@
                             <barButtonItem image="square.and.pencil" catalog="system" style="plain" id="0V7-ux-VZc" userLabel="NewNoteButton">
                                 <connections>
                                     <action selector="NewNoteButtonClicked:" destination="BYZ-38-t0r" id="Bv3-1b-WdP"/>
+                                    <segue destination="HAV-AU-NCz" kind="show" identifier="NewNoteSegue" id="rGX-Jm-yqC"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="gear" catalog="system" style="done" id="hYl-cc-XoQ" userLabel="SettingsButton">
@@ -129,6 +130,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLT-cP-5Ic" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1625" y="58"/>
+        </scene>
+        <!--NewNote-->
+        <scene sceneID="9kI-3l-xbD">
+            <objects>
+                <viewController title="NewNote" id="HAV-AU-NCz" customClass="NewNoteViewController" customModule="planner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yhl-9Q-Qms">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="R9a-mz-PSh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SHr-Rv-Fhs">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ce7-jN-JKm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5FO-IP-ahC" userLabel="DoneButton">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonClicked:" destination="HAV-AU-NCz" eventType="touchUpInside" id="RWv-4x-PmP"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="5FO-IP-ahC" id="GN4-fR-7lI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="saV-DQ-Hdc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="800"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Tfk-4k-tdT">
@@ -166,9 +197,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>

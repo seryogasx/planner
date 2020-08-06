@@ -16,12 +16,12 @@ class NoteCell: UITableViewCell {
     @IBOutlet weak var stateButton: UIButton!
     
     var note: Note?
-//    var buttonImage = "circle"
     
     
     // UPDATE Data at DB (in future)
     @IBAction func stateButtonClicked(_ sender: Any) {
         self.note?.state.toggle()
+//        Storage.shared.updateNote(updatedNote: note!)
         self.setButtonImage()
     }
     

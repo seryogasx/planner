@@ -21,6 +21,7 @@
 		A6A31D6224D6AE1300F62F74 /* plannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D6124D6AE1300F62F74 /* plannerTests.swift */; };
 		A6A31D6D24D6AE1300F62F74 /* plannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D6C24D6AE1300F62F74 /* plannerUITests.swift */; };
 		A6A31D7E24D6C7F800F62F74 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A31D7D24D6C7F800F62F74 /* Model.swift */; };
+		A6EADF8824DBE1FC00FFA331 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EADF8724DBE1FC00FFA331 /* NewNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		A6A31D6C24D6AE1300F62F74 /* plannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plannerUITests.swift; sourceTree = "<group>"; };
 		A6A31D6E24D6AE1300F62F74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A31D7D24D6C7F800F62F74 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A6EADF8724DBE1FC00FFA331 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				A6A31D4B24D6AE1000F62F74 /* NoteListViewController.swift */,
 				A64C032524DAF82D0071B51B /* SettingsViewController.swift */,
 				A64C032724DAF8E80071B51B /* NoteDetailViewController.swift */,
+				A6EADF8724DBE1FC00FFA331 /* NewNoteViewController.swift */,
 			);
 			path = ViewConrollers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				A64C032824DAF8E80071B51B /* NoteDetailViewController.swift in Sources */,
 				A6A31D4C24D6AE1000F62F74 /* NoteListViewController.swift in Sources */,
 				A632A58024D8938800B1F21A /* NoteCell.swift in Sources */,
+				A6EADF8824DBE1FC00FFA331 /* NewNoteViewController.swift in Sources */,
 				A64C032F24DB0D720071B51B /* Storage.swift in Sources */,
 				A6A31D4824D6AE1000F62F74 /* AppDelegate.swift in Sources */,
 				A6A31D4A24D6AE1000F62F74 /* SceneDelegate.swift in Sources */,
