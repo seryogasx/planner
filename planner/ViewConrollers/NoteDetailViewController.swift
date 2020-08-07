@@ -11,7 +11,10 @@ import UIKit
 
 class NoteDetailViewController: UIViewController {
     
+    var note: Note?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(note ?? "nothing to show in detail vc")
     }
 }

@@ -16,6 +16,8 @@ class NoteCell: UITableViewCell {
     @IBOutlet weak var stateButton: UIButton!
     
     var note: Note?
+    weak var table: UITableView? = nil
+    var index: IndexPath? = nil
     
     @IBAction func stateButtonClicked(_ sender: Any) {
         self.note?.state.toggle()
@@ -26,6 +28,11 @@ class NoteCell: UITableViewCell {
     func setButtonImage() {
         let buttonImage = note?.state == false ? UIImage(systemName: "circle") : UIImage(systemName: "circle.fill")
         self.stateButton.setImage(buttonImage, for: .normal)
+    }
+
+    @IBAction func noteDetailButtonClicked(_ sender: UIButton) {
+        self.table?.selectRow(at: index, animated: true, scrollPosition: .none)
+        print(self.isSelected)
     }
     
 }

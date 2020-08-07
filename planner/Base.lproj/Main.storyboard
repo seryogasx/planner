@@ -51,11 +51,13 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbT-N8-N4G" userLabel="NoteDetailButton">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-4K-wDk" userLabel="NoteDetailButton">
                                                             <rect key="frame" x="334" y="0.0" width="20" height="37"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <state key="normal" image="info.circle" catalog="system"/>
                                                             <connections>
-                                                                <segue destination="wCa-8f-MzV" kind="show" identifier="DetailSegue" id="cij-DW-bFf"/>
+                                                                <action selector="noteDetailButtonClicked:" destination="p0F-ZM-TeI" eventType="touchUpInside" id="dY1-yi-Gt9"/>
+                                                                <segue destination="wCa-8f-MzV" kind="show" identifier="NoteDetailSegue" id="4T4-dC-JDd"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -139,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qKZ-wf-DLg">
-                                <rect key="frame" x="10" y="98" width="394" height="328.5"/>
+                                <rect key="frame" x="10" y="98" width="394" height="330.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-nV-DEt">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -147,12 +149,12 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ST9-FC-C7R">
-                                        <rect key="frame" x="0.0" y="54" width="394" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="54" width="394" height="40.5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Set finish date">
                                                     <attributes>
-                                                        <font key="NSFont" size="24" name=".SFNS-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="24"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -163,7 +165,7 @@
                                         </connections>
                                     </button>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UH4-xh-igX">
-                                        <rect key="frame" x="0.0" y="112.5" width="394" height="216"/>
+                                        <rect key="frame" x="0.0" y="114.5" width="394" height="216"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="216" id="dai-x9-dbF"/>
                                         </constraints>

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let animDuration = 0.5
+let animDuration = 0.33
 
 class NewNoteViewController: UIViewController {
     
@@ -28,8 +28,7 @@ class NewNoteViewController: UIViewController {
             Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false))
         }
         else {
-            let date = self.datePicker.date
-            Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false, finishDate: date))
+            Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false, finishDate: self.datePicker.date))
         }
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -40,6 +39,7 @@ class NewNoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.datePicker.date = Date() // set current date to picker
+        self.datePicker.date = Date()
+        self.datePicker.isHidden = true
     }
 }

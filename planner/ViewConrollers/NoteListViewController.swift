@@ -20,6 +20,10 @@ class NoteListViewController: UIViewController {
     @IBAction func NewNoteButtonClicked(_ sender: UIBarButtonItem) {
 //        Storage.shared.saveNote(note: Note(objectID: nil, description: "kek", state: true, finishDate: Date(timeIntervalSinceNow: 10000)))
     }
+
+    @IBAction func noteDetailButtonClicked(_ sender: Any) {
+        print(self.notesTable.indexPathForSelectedRow?.row ?? "no cell")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +53,12 @@ extension NoteListViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.note = note
         cell.descriptionTextField.text = note.description
+        cell.index = indexPath
+        cell.table = self.notesTable
         cell.setButtonImage()
         
         guard note.finishDate != nil else {
-            cell.finishDateLabel.isHidden = true
+            cell.finishDateLabel.text = "No deadline"
             return cell
         }
         
@@ -62,8 +68,26 @@ extension NoteListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.notesTable.deleteRows(at: [indexPath], with: .fade)
             Storage.shared.deleteNote(deletedNote: notesData[indexPath.row])
+            
+            self.notesTable.beginUpdates()
+            self.notesTable.deleteRows(at: [ indexPath ], with: .automatic)
+            notesData.remove(at: indexPath.row)
+            self.notesTable.endUpdates()
+        }
+    }
+}
+
+extension NoteListViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NoteDetailSegue" {
+            let index = self.notesTable.indexPathForSelectedRow!.row
+            print(self.notesData[index])
+            if let noteDetailVC = segue.destination as? NoteDetailViewController {
+                noteDetailVC.note = self.notesData[index]
+            }
+            print(self.notesTable.indexPathForSelectedRow?.row ?? "no selected row!")
         }
     }
 }
