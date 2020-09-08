@@ -15,6 +15,6 @@ class NoteDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(note ?? "nothing to show in detail vc")
+        
     }
 }

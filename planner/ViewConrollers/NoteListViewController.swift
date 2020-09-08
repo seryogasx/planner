@@ -13,81 +13,81 @@ import CoreData
 class NoteListViewController: UIViewController {
 
     @IBOutlet weak var settingsButton: UIBarButtonItem!
-    @IBOutlet weak var notesTable: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
     var notesData: [Note] = []
+    let cellID = "NoteCell"
+    let insets = UIEdgeInsets(top: 0, left: 5, bottom: 69, right: 5)
     
-    @IBAction func NewNoteButtonClicked(_ sender: UIBarButtonItem) {
-//        Storage.shared.saveNote(note: Note(objectID: nil, description: "kek", state: true, finishDate: Date(timeIntervalSinceNow: 10000)))
-    }
-
-    @IBAction func noteDetailButtonClicked(_ sender: Any) {
-        print(self.notesTable.indexPathForSelectedRow?.row ?? "no cell")
-    }
+    let data = [
+        UIColor.green,
+        UIColor.yellow,
+        UIColor.brown
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionViewSetup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.notesData = Storage.shared.loadNotes()
-        self.notesTable.reloadData()
+    func collectionViewSetup() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
+//        collectionView.register(NoteCell.self, forCellWithReuseIdentifier: cellID)
+//        collectionView.isPagingEnabled = true
     }
 }
 
 
-extension NoteListViewController: UITableViewDelegate, UITableViewDataSource {
+extension NoteListViewController: UICollectionViewDelegate {
     
-    var cellReuseIdentifier: String {
-        return "NoteCell"
+}
+
+
+extension NoteListViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count * 5
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.notesData.count
-    }
-       
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let note = notesData[indexPath.row]
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell: NoteCell = self.notesTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! NoteCell
-        
-        cell.note = note
-        cell.descriptionTextField.text = note.description
-        cell.index = indexPath
-        cell.table = self.notesTable
-        cell.setButtonImage()
-        
-        guard note.finishDate != nil else {
-            cell.finishDateLabel.text = "No deadline"
-            return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? NoteCell else {
+            return UICollectionViewCell()
         }
-        
-        cell.finishDateLabel.text = note.finishDate?.noteDate
+        let color = data[indexPath.item % 3]
+        cell.setup(color: color)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            Storage.shared.deleteNote(deletedNote: notesData[indexPath.row])
-            
-            self.notesTable.beginUpdates()
-            self.notesTable.deleteRows(at: [ indexPath ], with: .automatic)
-            notesData.remove(at: indexPath.row)
-            self.notesTable.endUpdates()
-        }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 5
     }
 }
 
-extension NoteListViewController {
+
+extension NoteListViewController: UICollectionViewDelegateFlowLayout {
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NoteDetailSegue" {
-            let index = self.notesTable.indexPathForSelectedRow!.row
-            print(self.notesData[index])
-            if let noteDetailVC = segue.destination as? NoteDetailViewController {
-                noteDetailVC.note = self.notesData[index]
-            }
-            print(self.notesTable.indexPathForSelectedRow?.row ?? "no selected row!")
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 10 - insets, 5 - between cols
+        let width: CGFloat = collectionView.frame.width / 8
+        let height: CGFloat = collectionView.frame.height / 6
+        return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return insets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
 }

@@ -13,7 +13,7 @@ struct Note {
     let objectID: NSManagedObjectID?
     let description: String
     var state: Bool
-    var finishDate: Date? = nil
+    var date: Date? = nil
 }
 
 

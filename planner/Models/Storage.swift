@@ -46,6 +46,7 @@ class Storage {
     }
 }
 
+
 extension Storage {
     
     func loadNotes() -> [Note] {
@@ -66,8 +67,8 @@ extension Storage {
         for note in dryNotes {
             let text = note.value(forKey: "text") as! String
             let state = note.value(forKey: "state") as! Bool
-            let finishDate = note.value(forKey: "finishDate") as? Date
-            notes.append(Note(objectID: note.objectID, description: text, state: state, finishDate: finishDate))
+            let date = note.value(forKey: "date") as? Date
+            notes.append(Note(objectID: note.objectID, description: text, state: state, date: date))
         }
         
         return notes
@@ -79,7 +80,7 @@ extension Storage {
         let newNote = NSManagedObject(entity: entity, insertInto: mainContext)
         
         newNote.setValue(note.description, forKey: "text")
-        newNote.setValue(note.finishDate, forKey: "finishDate")
+        newNote.setValue(note.date, forKey: "date")
         newNote.setValue(note.state, forKey: "state")
         
         do {
@@ -97,7 +98,7 @@ extension Storage {
             let note = mainContext.object(with: updatedNote.objectID!)
             note.setValue(updatedNote.description, forKey: "text")
             note.setValue(updatedNote.state, forKey: "state")
-            note.setValue(updatedNote.finishDate, forKey: "finisDate")
+            note.setValue(updatedNote.date, forKey: "date")
             
             try mainContext.save()
         } catch let error as NSError {

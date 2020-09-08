@@ -28,7 +28,7 @@ class NewNoteViewController: UIViewController {
             Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false))
         }
         else {
-            Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false, finishDate: self.datePicker.date))
+            Storage.shared.saveNote(note: Note(objectID: nil, description: text, state: false, date: self.datePicker.date))
         }
         self.navigationController?.popToRootViewController(animated: true)
     }

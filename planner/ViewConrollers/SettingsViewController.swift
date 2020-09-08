@@ -11,6 +11,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    let cellIdentifier = "CollectionNoteIdentifier"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
